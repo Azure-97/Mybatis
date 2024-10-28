@@ -1,0 +1,16 @@
+[INFO] 2023-07-30 16:57:45 [class:test]-info
+[ERROR] 2023-07-30 16:57:45 [class:test]-error
+[INFO] 2023-07-30 18:13:10 [class:test]-User{id='1', name='1', pwd='1'}
+[INFO] 2023-07-30 18:13:10 [class:test]-User{id='2', name='112', pwd='2'}
+[INFO] 2023-07-30 18:35:45 [class:test]-User{id='1', name='1', pwd='1'}
+[INFO] 2023-07-30 18:35:45 [class:test]-User{id='2', name='112', pwd='2'}
+[INFO] 2023-08-02 21:21:05 [class:test]-info
+[ERROR] 2023-08-02 21:21:05 [class:test]-error
+[INFO] 2023-08-02 21:23:58 [class:test]-info
+[ERROR] 2023-08-02 21:23:58 [class:test]-error
+[INFO] 2023-08-02 21:25:07 [class:test]-info
+[ERROR] 2023-08-02 21:25:07 [class:test]-error
+[INFO] 2023-08-02 21:26:26 [class:test]-info
+[ERROR] 2023-08-02 21:26:26 [class:test]-error
+[INFO] 2023-08-02 21:27:49 [class:test]-info
+[ERROR] 2023-08-02 21:27:49 [class:test]-error

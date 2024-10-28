@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--核心配置文件-->
+<mapper namespace="com.kuang.dao.BlogMapper">
+    <cache></cache>
+    <insert id="addBlog" parameterType="com.kuang.pojo.Blog">
+        insert into blog(`id`,`title`,`author`,`create_time`,`views`) values (#{id},#{title},#{author},#{creatTime},#{views})
+    </insert>
+    <select id="qureyBlog" parameterType="map" resultType="com.kuang.pojo.Blog">
+        select * from blog where 1=1
+        <if test="title!=null">
+            and title = #{title}
+        </if>
+        <if test="author!=null">
+            and author = #{author}
+        </if>
+    </select>
+    <select id="qureyBlogChoose" parameterType="map" resultType="com.kuang.pojo.Blog">
+        select * from blog where 1=1
+        <choose>
+            <when test="title!=null">
+                and title = #{title}
+            </when>
+            <when test="author!=null">
+                and author = #{author}
+            </when>
+            <otherwise>
+                and 1=1
+            </otherwise>
+        </choose>
+    </select>
+    <select id="qureyBlogWhere" parameterType="map" resultType="com.kuang.pojo.Blog">
+        select * from blog
+        <where>
+            <choose>
+                <when test="title!=null">
+                    and title = #{title}
+                </when>
+                <when test="author!=null">
+                    and author = #{author}
+                </when>
+                <otherwise>
+                    and 1=1
+                </otherwise>
+            </choose>
+        </where>
+
+
+    </select>
+    <update id="qureyBlogSet" >
+        update blog
+            <set>
+                id='asd1',
+                author = '2',
+            </set>
+        <where>
+            id='asd'
+        </where>
+    </update>
+
+    <sql id="includIf">
+        <if test="title!=null">
+            and title = #{title}
+        </if>
+        <if test="author!=null">
+            and author = #{author}
+        </if>
+    </sql>
+
+    <select id="qureyBlogInclud" parameterType="map" resultType="com.kuang.pojo.Blog">
+        select * from blog where 1=1
+        <include refid="includIf">
+        </include>
+    </select>
+    
+    
+    <select id="qureyBlogForeach" resultType="com.kuang.pojo.Blog" parameterType="map">
+        SELECT * FROM BLOG
+        <where>
+            id in
+            <foreach collection="ids" open="(" separator="," close=")" item="id">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+
+</mapper>
